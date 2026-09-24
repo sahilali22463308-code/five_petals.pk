@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Five Petals Beauty Studio — beauty, hair, skincare, threading and henna services in Kacha Khuh." />
+  <title>Five Petals Beauty Studio</title>
+
+  <style>
+    :root{
+      --pink:#e9a9ba;
+      --deep:#7f3f55;
+      --rose:#c96d8b;
+      --light:#fff7f9;
+      --cream:#fffdfb;
+      --text:#4f3840;
+      --muted:#7c6870;
+      --line:#f0d9df;
+      --shadow:0 15px 45px rgba(127,63,85,.12);
+    }
+
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{
+      font-family: Georgia, "Times New Roman", serif;
+      color:var(--text);
+      background:var(--cream);
+      line-height:1.6;
+    }
+    a{text-decoration:none;color:inherit}
+    img{max-width:100%;display:block}
+
+    .topbar{
+      background:var(--deep);
+      color:#fff;
+      text-align:center;
+      padding:9px 16px;
+      font-family:Arial,sans-serif;
+      font-size:13px;
+      letter-spacing:.3px;
+    }
+
+    header{
+      position:sticky;
+      top:0;
+      z-index:20;
+      background:rgba(255,253,251,.95);
+      backdrop-filter:blur(12px);
+      border-bottom:1px solid var(--line);
+    }
+    .nav{
+      max-width:1150px;
+      margin:auto;
+      min-height:78px;
+      padding:12px 22px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:20px;
+    }
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+    }
+    .brand-mark{
+      width:48px;height:48px;border-radius:50%;
+      display:grid;place-items:center;
+      background:linear-gradient(145deg,#f9d9e2,#e8a3b7);
+      color:var(--deep);
+      font-size:25px;
+      box-shadow:0 7px 20px rgba(201,109,139,.2);
+    }
+    .brand h1{font-size:21px;color:var(--deep);line-height:1.1}
+    .brand span{font:11px Arial,sans-serif;letter-spacing:2px;color:var(--muted)}
+    nav{display:flex;align-items:center;gap:25px;font:14px Arial,sans-serif}
+    nav a{color:#624b53}
+    nav a:hover{color:var(--rose)}
+    .nav-cta{
+      background:var(--deep);
+      color:#fff;
+      padding:11px 17px;
+      border-radius:30px;
+    }
+
+    .hero{
+      min-height:670px;
+      display:grid;
+      place-items:center;
+      position:relative;
+      overflow:hidden;
+      background:
+        radial-gradient(circle at 15% 20%, rgba(255,255,255,.9), transparent 25%),
+        radial-gradient(circle at 90% 15%, rgba(233,169,186,.28), transparent 30%),
+        linear-gradient(135deg,#fff7f9,#fbe8ee 55%,#fffaf8);
+    }
+    .hero:before,.hero:after{
+      content:"✿";
+      position:absolute;
+      color:rgba(201,109,139,.18);
+      font-size:180px;
+    }
+    .hero:before{left:-35px;top:40px;transform:rotate(-20deg)}
+    .hero:after{right:-35px;bottom:20px;transform:rotate(25deg)}
+    .hero-inner{
+      width:min(1100px,92%);
+      display:grid;
+      grid-template-columns:1.1fr .9fr;
+      align-items:center;
+      gap:55px;
+      position:relative;
+      z-index:1;
+    }
+    .eyebrow{
+      color:var(--rose);
+      font:600 13px Arial,sans-serif;
+      text-transform:uppercase;
+      letter-spacing:3px;
+      margin-bottom:15px;
+    }
+    .hero h2{
+      font-size:clamp(46px,6vw,78px);
+      line-height:.98;
+      color:var(--deep);
+      font-weight:500;
+      margin-bottom:20px;
+    }
+    .hero h2 em{font-weight:400;color:var(--rose)}
+    .hero p{
+      max-width:580px;
+      color:var(--muted);
+      font-size:18px;
+      margin-bottom:30px;
+    }
+    .buttons{display:flex;gap:12px;flex-wrap:wrap}
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:8px;
+      padding:14px 22px;
+      border-radius:35px;
+      font:600 14px Arial,sans-serif;
+      transition:.2s ease;
+    }
+    .btn-primary{background:var(--deep);color:#fff;box-shadow:var(--shadow)}
+    .btn-secondary{border:1px solid var(--pink);color:var(--deep);background:#fff}
+    .btn:hover{transform:translateY(-2px)}
+
+    .hero-card{
+      background:rgba(255,255,255,.7);
+      border:1px solid rgba(255,255,255,.9);
+      border-radius:35px;
+      padding:35px;
+      box-shadow:var(--shadow);
+      text-align:center;
+    }
+    .flower{
+      width:210px;height:210px;
+      margin:0 auto 20px;
+      border-radius:50%;
+      background:radial-gradient(circle,#eaa7ba 0 9%,transparent 10%),
+        conic-gradient(from 0deg,#f8d7e0 0 12%,#e8a0b7 12% 25%,#f8d7e0 25% 37%,#e8a0b7 37% 50%,#f8d7e0 50% 62%,#e8a0b7 62% 75%,#f8d7e0 75% 87%,#e8a0b7 87% 100%);
+      box-shadow:inset 0 0 0 18px rgba(255,255,255,.35),0 20px 45px rgba(127,63,85,.14);
+      display:grid;place-items:center;
+      font-size:46px;color:#fff;
+    }
+    .hero-card h3{font-size:29px;color:var(--deep)}
+    .hero-card p{font-size:14px;margin:6px auto 0}
+
+    section{padding:90px 20px}
+    .container{max-width:1100px;margin:auto}
+    .section-head{text-align:center;margin-bottom:45px}
+    .section-head .eyebrow{margin-bottom:8px}
+    .section-head h2{font-size:42px;font-weight:500;color:var(--deep)}
+    .section-head p{max-width:650px;margin:10px auto;color:var(--muted);font-family:Arial,sans-serif;font-size:14px}
+
+    .services{background:var(--light)}
+    .service-grid{
+      display:grid;
+      grid-template-columns:repeat(5,1fr);
+      gap:15px;
+    }
+    .service{
+      background:#fff;
+      border:1px solid var(--line);
+      border-radius:25px;
+      padding:25px 17px;
+      text-align:center;
+      box-shadow:0 8px 25px rgba(127,63,85,.06);
+      transition:.2s;
+    }
+    .service:hover{transform:translateY(-5px);box-shadow:var(--shadow)}
+    .icon{
+      width:65px;height:65px;
+      margin:0 auto 14px;
+      border-radius:50%;
+      display:grid;place-items:center;
+      background:#fbe6ed;
+      font-size:28px;
+    }
+    .service h3{font-size:22px;color:var(--deep);margin-bottom:12px}
+    .service ul{list-style:none;font:13px Arial,sans-serif;color:var(--muted)}
+    .service li{margin:7px 0}
+    .service li:before{content:"♥";color:var(--rose);margin-right:6px;font-size:9px}
+
+    .about-grid{
+      display:grid;
+      grid-template-columns:.9fr 1.1fr;
+      gap:60px;
+      align-items:center;
+    }
+    .about-art{
+      min-height:390px;
+      border-radius:35px;
+      background:
+        radial-gradient(circle at 50% 45%,#f5c5d2 0 10%,transparent 11%),
+        conic-gradient(#fcebf0 0 12%,#e7a5b9 12% 25%,#fcebf0 25% 37%,#e7a5b9 37% 50%,#fcebf0 50% 62%,#e7a5b9 62% 75%,#fcebf0 75% 87%,#e7a5b9 87% 100%);
+      box-shadow:var(--shadow);
+      display:grid;place-items:center;
+      color:#fff;font-size:70px;
+      position:relative;
+    }
+    .about-art:after{
+      content:"BEAUTY • CARE • CONFIDENCE";
+      position:absolute;bottom:28px;
+      background:rgba(127,63,85,.9);
+      padding:10px 18px;border-radius:20px;
+      font:11px Arial,sans-serif;letter-spacing:2px;
+    }
+    .about h2{font-size:44px;color:var(--deep);font-weight:500;margin-bottom:18px}
+    .about p{color:var(--muted);margin-bottom:16px}
+    .quote{border-left:3px solid var(--pink);padding-left:18px;font-style:italic;color:var(--deep)}
+
+    .contact{background:var(--light)}
+    .contact-grid{
+      display:grid;grid-template-columns:1fr 1fr;gap:25px;
+    }
+    .contact-card{
+      background:#fff;border:1px solid var(--line);border-radius:28px;padding:30px;
+      box-shadow:0 8px 25px rgba(127,63,85,.06);
+    }
+    .contact-card h3{color:var(--deep);font-size:25px;margin-bottom:18px}
+    .contact-item{display:flex;gap:14px;align-items:flex-start;margin:17px 0;font-family:Arial,sans-serif}
+    .contact-icon{
+      width:38px;height:38px;flex:none;border-radius:50%;background:#fbe6ed;
+      display:grid;place-items:center;color:var(--deep);
+    }
+    .contact-item strong{display:block;color:#5e464e;margin-bottom:2px}
+    .contact-item span,.contact-item a{color:var(--muted);font-size:14px}
+    .socials{display:flex;gap:10px;margin-top:22px;flex-wrap:wrap}
+    .social{
+      padding:11px 16px;border:1px solid var(--line);border-radius:25px;
+      color:var(--deep);font:600 13px Arial,sans-serif;background:#fff;
+    }
+
+    .cta{
+      padding:70px 20px;
+      background:linear-gradient(135deg,#7f3f55,#a85670);
+      color:#fff;text-align:center;
+    }
+    .cta h2{font-size:42px;font-weight:500;margin-bottom:10px}
+    .cta p{opacity:.9;margin-bottom:25px}
+    .cta .btn-primary{background:#fff;color:var(--deep)}
+
+    footer{
+      background:#4e2b37;color:#eadde1;text-align:center;padding:28px 20px;
+      font:13px Arial,sans-serif;
+    }
+    footer strong{color:#fff}
+
+    @media(max-width:850px){
+      nav a:not(.nav-cta){display:none}
+      .hero-inner,.about-grid,.contact-grid{grid-template-columns:1fr}
+      .hero{padding:65px 0}
+      .hero-card{max-width:500px;margin:auto}
+      .service-grid{grid-template-columns:repeat(2,1fr)}
+    }
+    @media(max-width:520px){
+      .nav{padding:10px 14px}
+      .brand h1{font-size:17px}
+      .brand span{font-size:9px}
+      .nav-cta{padding:9px 12px;font-size:12px}
+      section{padding:65px 15px}
+      .hero h2{font-size:49px}
+      .hero p{font-size:16px}
+      .hero-card{padding:25px}
+      .flower{width:170px;height:170px}
+      .section-head h2,.about h2,.cta h2{font-size:34px}
+      .service-grid{grid-template-columns:1fr 1fr;gap:10px}
+      .service{padding:20px 10px}
+      .service h3{font-size:19px}
+      .contact-grid{gap:14px}
+    }
+  </style>
+</head>
+
+<body>
+  <div class="topbar">✿ Beauty • Care • Confidence — Book your appointment today ✿</div>
+
+  <header>
+    <div class="nav">
+      <a class="brand" href="#home">
+        <div class="brand-mark">✿</div>
+        <div>
+          <h1>Five Petals</h1>
+          <span>BEAUTY STUDIO</span>
+        </div>
+      </a>
+      <nav>
+        <a href="#home">Home</a>
+        <a href="#services">Services</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+        <a class="nav-cta" href="https://wa.me/923246726973?text=Assalam-o-Alaikum%2C%20I%20would%20like%20to%20book%20an%20appointment%20at%20Five%20Petals%20Beauty%20Studio." target="_blank" rel="noopener">Book Now</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="hero-inner">
+        <div>
+          <div class="eyebrow">One vision by Five</div>
+          <h2>Look Good.<br><em>Feel Good.</em><br>Be You.</h2>
+          <p>
+            Welcome to Five Petals Beauty Studio — your place for beautiful,
+            confident looks with makeup, hair, skincare, threading and henna services.
+          </p>
+          <div class="buttons">
+            <a class="btn btn-primary" href="https://wa.me/923246726973?text=Assalam-o-Alaikum%2C%20I%20would%20like%20to%20book%20an%20appointment%20at%20Five%20Petals%20Beauty%20Studio." target="_blank" rel="noopener">💬 WhatsApp Us</a>
+            <a class="btn btn-secondary" href="https://instagram.com/fivepetalsbeautystudio" target="_blank" rel="noopener">◎ Instagram</a>
+          </div>
+        </div>
+
+        <div class="hero-card">
+          <div class="flower">✿</div>
+          <h3>Five Petals</h3>
+          <p>Beauty Studio · Kacha Khuh</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="services" id="services">
+      <div class="container">
+        <div class="section-head">
+          <div class="eyebrow">What we offer</div>
+          <h2>Our Services</h2>
+          <p>Beauty services for bridal, party, events and everyday self-care.</p>
+        </div>
+
+        <div class="service-grid">
+          <article class="service">
+            <div class="icon">💄</div>
+            <h3>Makeup</h3>
+            <ul><li>Bridal</li><li>Party</li><li>Event</li></ul>
+          </article>
+
+          <article class="service">
+            <div class="icon">💇‍♀️</div>
+            <h3>Hair</h3>
+            <ul><li>Hairdo / Styling</li><li>Cutting</li></ul>
+          </article>
+
+          <article class="service">
+            <div class="icon">✨</div>
+            <h3>Skin Care</h3>
+            <ul><li>Facial</li><li>Skin Polish</li><li>Cleanup</li></ul>
+          </article>
+
+          <article class="service">
+            <div class="icon">👁️</div>
+            <h3>Threading</h3>
+            <ul><li>Eyebrows</li><li>Upper Lips</li><li>Forehead</li></ul>
+          </article>
+
+          <article class="service">
+            <div class="icon">🌿</div>
+            <h3>Henna</h3>
+            <ul><li>Bridal</li><li>Party</li><li>Event</li></ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="about" id="about">
+      <div class="container about-grid">
+        <div class="about-art">🌸</div>
+        <div>
+          <div class="eyebrow">About us</div>
+          <h2>Beauty that feels like you.</h2>
+          <p>
+            Five Petals Beauty Studio is a women-focused beauty studio offering
+            makeup, hair, skincare, threading and henna services under one roof.
+          </p>
+          <p>
+            Whether it is your big day, a special event, or simply some time
+            for yourself, our goal is to help you feel confident and beautiful.
+          </p>
+          <p class="quote">“One vision by Five — Beauty, Care & Confidence.”</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <div class="container">
+        <div class="section-head">
+          <div class="eyebrow">Get in touch</div>
+          <h2>Book Your Appointment</h2>
+          <p>Contact us on WhatsApp, call us, or send us a message on Instagram.</p>
+        </div>
+
+        <div class="contact-grid">
+          <div class="contact-card">
+            <h3>Contact Details</h3>
+
+            <div class="contact-item">
+              <div class="contact-icon">📞</div>
+              <div>
+                <strong>WhatsApp & Call</strong>
+                <a href="tel:+923246726973">+92 324 6726973</a>
+              </div>
+            </div>
+
+            <div class="contact-item">
+              <div class="contact-icon">◎</div>
+              <div>
+                <strong>Instagram</strong>
+                <a href="https://instagram.com/fivepetalsbeautystudio" target="_blank" rel="noopener">@fivepetalsbeautystudio</a>
+              </div>
+            </div>
+
+            <div class="contact-item">
+              <div class="contact-icon">📍</div>
+              <div>
+                <strong>Address</strong>
+                <span>Street No. 2, House No. 24,<br>Near Railway Phatak, Kacha Khuh</span>
+              </div>
+            </div>
+
+            <div class="socials">
+              <a class="social" href="https://wa.me/923246726973?text=Assalam-o-Alaikum%2C%20I%20would%20like%20to%20book%20an%20appointment%20at%20Five%20Petals%20Beauty%20Studio." target="_blank" rel="noopener">WhatsApp</a>
+              <a class="social" href="https://instagram.com/fivepetalsbeautystudio" target="_blank" rel="noopener">Instagram</a>
+              <a class="social" href="tel:+923246726973">Call Now</a>
+            </div>
+          </div>
+
+          <div class="contact-card">
+            <h3>Why Five Petals?</h3>
+            <div class="contact-item"><div class="contact-icon">🌸</div><div><strong>All-in-one beauty care</strong><span>Makeup, hair, skin care, threading and henna.</span></div></div>
+            <div class="contact-item"><div class="contact-icon">💗</div><div><strong>Personal attention</strong><span>Services designed around your event and style.</span></div></div>
+            <div class="contact-item"><div class="contact-icon">✨</div><div><strong>Special occasions</strong><span>Bridal, party and event-ready beauty services.</span></div></div>
+            <div class="contact-item"><div class="contact-icon">💬</div><div><strong>Easy booking</strong><span>Message us directly on WhatsApp to reserve your appointment.</span></div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta">
+      <h2>Ready to feel beautiful?</h2>
+      <p>Book your appointment with Five Petals Beauty Studio.</p>
+      <a class="btn btn-primary" href="https://wa.me/923246726973?text=Assalam-o-Alaikum%2C%20I%20would%20like%20to%20book%20an%20appointment%20at%20Five%20Petals%20Beauty%20Studio." target="_blank" rel="noopener">💬 Book on WhatsApp</a>
+    </section>
+  </main>
+
+  <footer>
+    <p><strong>Five Petals Beauty Studio</strong> · Kacha Khuh</p>
+    <p>© <span id="year"></span> Five Petals Beauty Studio. All rights reserved.</p>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
